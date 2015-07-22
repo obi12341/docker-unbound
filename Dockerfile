@@ -26,10 +26,16 @@ RUN wget http://www.unbound.net/downloads/unbound-1.5.4.tar.gz -P /usr/local/src
 RUN useradd --system unbound
 ENV PATH $PATH:/usr/local/lib
 RUN ldconfig
-COPY assets/unbound.conf /usr/local/etc/unbound/unbound.conf
+ADD assets/unbound.conf /usr/local/etc/unbound/unbound.conf
 RUN chown -R unbound:unbound /usr/local/etc/unbound/
 RUN sudo -u unbound unbound-anchor -a /usr/local/etc/unbound/root.key ; true
+RUN sudo -u unbound unbound-control-setup
+RUN sudo -u unbound wget ftp://FTP.INTERNIC.NET/domain/named.cache -O /usr/local/etc/unbound/root.hints
 
+ADD start.sh /start.sh
+RUN chmod +x /start.sh
 
 EXPOSE 53/udp
-CMD ["/usr/local/sbin/unbound", "-c", "/usr/local/etc/unbound/unbound.conf", "-d", "-v"]
+EXPOSE 53
+
+CMD ["/start.sh"]
