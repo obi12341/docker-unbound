@@ -1,0 +1,8 @@
+unbound:
+  image: writl/unbound
+  ports:
+  - "53:53/udp"
+  - "53:53"
+  environment:
+  - DO_IPV6=yes
+  restart: always
