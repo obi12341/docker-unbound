@@ -1,22 +1,27 @@
 FROM ubuntu:14.04
 MAINTAINER patrick@oberdorf.net
 
-RUN apt-get update
-RUN apt-get install -y \
+RUN apt-get update && apt-get install -y \
 	build-essential \
 	tar \
 	wget \
 	libssl-dev \
 	libexpat1-dev \
-	dnsutils
+	dnsutils \
+	&& apt-get clean
 
-RUN wget http://www.unbound.net/downloads/unbound-1.5.4.tar.gz -P /usr/local/src/
 WORKDIR /usr/local/src/
 ADD assets/sha256checksum sha256checksum
-RUN sha256sum -c sha256checksum
-RUN tar -xvf unbound-1.5.4.tar.gz
-WORKDIR /usr/local/src/unbound-1.5.4
-RUN ./configure --prefix=/usr/local && make && make install
+RUN wget http://www.unbound.net/downloads/unbound-1.5.4.tar.gz -P /usr/local/src/ \
+	&& sha256sum -c sha256checksum \
+	&& tar -xvf unbound-1.5.4.tar.gz \
+	&& rm unbound-1.5.4.tar.gz \
+	&& cd unbound-1.5.4 \
+	&& ./configure --prefix=/usr/local \
+	&& make \
+	&& make install \
+	&& cd ../ \
+	&& rm -R unbound-1.5.4
 
 RUN useradd --system unbound
 ENV PATH $PATH:/usr/local/lib
