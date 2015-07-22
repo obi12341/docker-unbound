@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:trusty
 MAINTAINER patrick@oberdorf.net
 
 RUN apt-get update && apt-get install -y \
