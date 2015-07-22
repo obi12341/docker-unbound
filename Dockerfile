@@ -12,6 +12,8 @@ RUN apt-get install -y \
 
 RUN wget http://www.unbound.net/downloads/unbound-1.5.4.tar.gz -P /usr/local/src/
 WORKDIR /usr/local/src/
+ADD assets/sha256checksum sha256checksum
+RUN sha256sum -c sha256checksum
 RUN tar -xvf unbound-1.5.4.tar.gz
 WORKDIR /usr/local/src/unbound-1.5.4
 RUN ./configure --prefix=/usr/local && make && make install
