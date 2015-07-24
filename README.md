@@ -1,5 +1,6 @@
 Unbound (with DNSSEC validation)
 ===========
+[![](https://badge.imagelayers.io/writl/unbound:latest.svg)](https://imagelayers.io/?images=writl/unbound:latest 'Get your own badge on imagelayers.io')
 
 # Running
 
