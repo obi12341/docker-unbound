@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
 	tar \
 	wget \
 	libssl-dev \
+	libevent-dev \
+	libevent-2.0-5 \
 	libexpat1-dev \
 	dnsutils \
 	&& wget http://www.unbound.net/downloads/unbound-1.5.4.tar.gz -P /usr/local/src/ \
@@ -16,7 +18,7 @@ RUN apt-get update && apt-get install -y \
 	&& tar -xvf unbound-1.5.4.tar.gz \
 	&& rm unbound-1.5.4.tar.gz \
 	&& cd unbound-1.5.4 \
-	&& ./configure --prefix=/usr/local \
+	&& ./configure --prefix=/usr/local --with-libevent \
 	&& make \
 	&& make install \
 	&& cd ../ \
@@ -24,6 +26,7 @@ RUN apt-get update && apt-get install -y \
 	&& apt-get remove -y \
 	build-essential \
 	libssl-dev \
+	libevent-dev \
 	libexpat1-dev \
 	&& apt-get autoremove --purge -y \
 	&& apt-get clean
