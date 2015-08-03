@@ -5,4 +5,6 @@ unbound:
   - "53:53"
   environment:
   - DO_IPV6=yes
+  - VERBOSITY=0
+  - NUM_THREADS=1
   restart: always

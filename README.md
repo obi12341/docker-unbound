@@ -12,3 +12,5 @@ Just use this command to start the container. Unbound will listen on port 53/udp
 These options can be set:
 
 - **DO_IPV6**: Enable or disable ipv6. (Default: "yes", Possible Values: "yes, no")
+- **VERBOSITY**: verbosity number, 0 is least verbose. (Default: "0", Possible Values: "0, 1, 2, 3, ...")
+- **NUM_THREADS**: number of threads to create. 1 disables threading. (Default: "1", Possible Values: "1, 2, 3, ..."
