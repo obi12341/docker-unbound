@@ -5,6 +5,20 @@ unbound:
   - "53:53"
   environment:
   - DO_IPV6=yes
+  - DO_IPV4=yes
+  - DO_UDP=yes
+  - DO_TCP=yes
   - VERBOSITY=0
   - NUM_THREADS=1
+  - SO_RCVBUFF=0
+  - SO_SNDBUF=0
+  - SO_REUSEPORT=no
+  - EDNS_BUFFER_SIZE=4096
+  - MSG_CACHE_SIZE=4m
+  - RRSET_CACHE_SIZE=4m
+  - CACHE_MIN_TTL=0
+  - CACHE_MAX_TTL=86400
+  - CACHE_MAX_NEGATIVE_TTL=3600
+  - HIDE_IDENTITY=no
+  - HIDE_VERSION=no
   restart: always
