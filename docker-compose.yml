@@ -1,5 +1,5 @@
 unbound:
-  image: writl/unbound
+  image: secns/unbound
   ports:
   - "53:53/udp"
   - "53:53"
