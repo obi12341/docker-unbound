@@ -29,7 +29,8 @@ RUN apt-get update && apt-get install -y \
 	libevent-dev \
 	libexpat1-dev \
 	&& apt-get autoremove --purge -y \
-	&& apt-get clean
+	&& apt-get clean \
+	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/lib/tmp*
 
 RUN useradd --system unbound
 ENV PATH $PATH:/usr/local/lib
