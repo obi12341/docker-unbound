@@ -1,6 +1,8 @@
 FROM ubuntu:trusty
 MAINTAINER patrick@oberdorf.net
 
+ENV VERSION 1.5.4
+
 WORKDIR /usr/local/src/
 ADD assets/sha256checksum sha256checksum
 
@@ -13,17 +15,17 @@ RUN apt-get update && apt-get install -y \
 	libevent-2.0-5 \
 	libexpat1-dev \
 	dnsutils \
-	&& wget http://www.unbound.net/downloads/unbound-1.5.4.tar.gz -P /usr/local/src/ \
+	&& wget http://www.unbound.net/downloads/unbound-${VERSION}.tar.gz -P /usr/local/src/ \
 	&& sha256sum -c sha256checksum \
-	&& tar -xvf unbound-1.5.4.tar.gz \
-	&& rm unbound-1.5.4.tar.gz \
-	&& cd unbound-1.5.4 \
+	&& tar -xvf unbound-${VERSION}.tar.gz \
+	&& rm unbound-${VERSION}.tar.gz \
+	&& cd unbound-${VERSION} \
 	&& ./configure --prefix=/usr/local --with-libevent \
 	&& make \
 	&& make install \
 	&& cd ../ \
-	&& rm -R unbound-1.5.4 \
-	&& apt-get remove -y \
+	&& rm -R unbound-${VERSION} \
+	&& apt-get purge -y \
 	build-essential \
 	libssl-dev \
 	libevent-dev \
