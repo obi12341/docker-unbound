@@ -27,6 +27,10 @@ RUN apt-get update && apt-get install -y \
 	&& rm -R unbound-${VERSION} \
 	&& apt-get purge -y \
 	build-essential \
+	gcc \
+	gcc-4.8 \
+	cpp \
+	cpp-4.8 \
 	libssl-dev \
 	libevent-dev \
 	libexpat1-dev \
