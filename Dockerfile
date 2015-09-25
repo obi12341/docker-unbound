@@ -30,7 +30,7 @@ RUN apt-get update && apt-get install -y \
 	gcc \
 	gcc-4.8 \
 	cpp \
-	cpp-4.8 \
+	cpp-4.8 \
 	libssl-dev \
 	libevent-dev \
 	libexpat1-dev \
