@@ -30,7 +30,7 @@ RUN apt-get update && apt-get install -y \
 	libexpat1-dev \
 	&& apt-get autoremove --purge -y \
 	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/lib/tmp*
+	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN useradd --system unbound
 ENV PATH $PATH:/usr/local/lib
