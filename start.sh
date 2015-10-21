@@ -17,6 +17,9 @@ CACHE_MAX_TTL=${CACHE_MAX_TTL:-86400}
 CACHE_MAX_NEGATIVE_TTL=${CACHE_MAX_NEGATIVE_TTL:-3600}
 HIDE_IDENTITY=${HIDE_IDENTITY:-no}
 HIDE_VERSION=${HIDE_VERSION:-no}
+STATISTICS_INTERVAL=${STATISTICS_INTERVAL:-0}
+STATISTICS_CUMULATIVE=${STATISTICS_CUMULATIVE:-no}
+EXTENDED_STATISTICS=${EXTENDED_STATISTICS:-no}
 
 
 sed 's/{{DO_IPV6}}/'"${DO_IPV6}"'/' -i /usr/local/etc/unbound/unbound.conf
@@ -36,5 +39,8 @@ sed 's/{{CACHE_MAX_TTL}}/'"${CACHE_MAX_TTL}"'/' -i /usr/local/etc/unbound/unboun
 sed 's/{{CACHE_MAX_NEGATIVE_TTL}}/'"${CACHE_MAX_NEGATIVE_TTL}"'/' -i /usr/local/etc/unbound/unbound.conf
 sed 's/{{HIDE_IDENTITY}}/'"${HIDE_IDENTITY}"'/' -i /usr/local/etc/unbound/unbound.conf
 sed 's/{{HIDE_VERSION}}/'"${HIDE_VERSION}"'/' -i /usr/local/etc/unbound/unbound.conf
+sed 's/{{STATISTICS_INTERVAL}}/'"${STATISTICS_INTERVAL}"'/' -i /usr/local/etc/unbound/unbound.conf
+sed 's/{{STATISTICS_CUMULATIVE}}/'"${STATISTICS_CUMULATIVE}"'/' -i /usr/local/etc/unbound/unbound.conf
+sed 's/{{EXTENDED_STATISTICS}}/'"${EXTENDED_STATISTICS}"'/' -i /usr/local/etc/unbound/unbound.conf
 
 /usr/local/sbin/unbound -c /usr/local/etc/unbound/unbound.conf -d -v

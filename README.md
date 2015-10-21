@@ -28,3 +28,6 @@ These options can be set:
 - **CACHE_MAX_NEGATIVE_TTL**: The time to live (TTL) value cap for negative responses in the cache. (Default: "3600", Possible Values: "<integer>")
 - **HIDE_IDENTITY**: Enable to not answer id.server and hostname.bind queries. (Default: "no", Possible Values: "yes, no")
 - **HIDE_VERSION**: Enable to not answer version.server and version.bind queries. (Default: "no", Possible Values: "yes, no")
+- **STATISTICS_INTERVAL**: print statistics to the log (for every thread) every N seconds. (Default: "0", Possible Values: "0, 1")
+- **STATISTICS_CUMULATIVE**: enable cumulative statistics, without clearing them after printing. (Default: "no", Possible Values: "yes, no")
+- **EXTENDED_STATISTICS**: enable extended statistics (query types, answer codes, status) printed from unbound-control. (Default: "no", Possible Values: "yes, no")
