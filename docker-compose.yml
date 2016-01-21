@@ -1,9 +1,12 @@
 unbound:
-  image: secns/unbound
+  image: ryanckoch/unbound-forwarder
+  restart: always
   ports:
-  - "53:53/udp"
-  - "53:53"
+  - "53535:53/udp"
+  - "53535:53"
   environment:
+  - UPSTREAM_DNS1=8.8.8.8
+  - UPSTREAM_DNS2=8.8.4.4
   - DO_IPV6=yes
   - DO_IPV4=yes
   - DO_UDP=yes
@@ -24,4 +27,3 @@ unbound:
   - STATISTICS_INTERVAL=0
   - STATISTICS_CUMULATIVE=no
   - EXTENDED_STATISTICS=no
-  restart: always
