@@ -2,8 +2,8 @@ unbound:
   image: ryanckoch/unbound-forwarder
   restart: always
   ports:
-  - "53535:53/udp"
-  - "53535:53"
+  - "53:53/udp"
+  - "53:53"
   environment:
   - UPSTREAM_DNS1=8.8.8.8
   - UPSTREAM_DNS2=8.8.4.4
