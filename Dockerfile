@@ -1,7 +1,7 @@
 FROM ubuntu:trusty
 MAINTAINER patrick@oberdorf.net
 
-ENV VERSION 1.5.7
+ENV VERSION 1.5.8
 
 WORKDIR /usr/local/src/
 ADD assets/sha256checksum sha256checksum
@@ -38,15 +38,18 @@ RUN apt-get update && apt-get install -y \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN useradd --system unbound
+RUN useradd --system unbound --home /home/unbound --create-home
 ENV PATH $PATH:/usr/local/lib
 RUN ldconfig
 ADD assets/unbound.conf /usr/local/etc/unbound/unbound.conf
 RUN chown -R unbound:unbound /usr/local/etc/unbound/
-RUN sudo -u unbound unbound-anchor -a /usr/local/etc/unbound/root.key ; true
-RUN sudo -u unbound unbound-control-setup
-RUN sudo -u unbound wget ftp://FTP.INTERNIC.NET/domain/named.cache -O /usr/local/etc/unbound/root.hints
 
+USER unbound
+RUN unbound-anchor -a /usr/local/etc/unbound/root.key ; true
+RUN unbound-control-setup \
+	&& wget ftp://FTP.INTERNIC.NET/domain/named.cache -O /usr/local/etc/unbound/root.hints
+
+USER root
 ADD start.sh /start.sh
 RUN chmod +x /start.sh
 
