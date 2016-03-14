@@ -43,4 +43,4 @@ sed 's/{{STATISTICS_INTERVAL}}/'"${STATISTICS_INTERVAL}"'/' -i /usr/local/etc/un
 sed 's/{{STATISTICS_CUMULATIVE}}/'"${STATISTICS_CUMULATIVE}"'/' -i /usr/local/etc/unbound/unbound.conf
 sed 's/{{EXTENDED_STATISTICS}}/'"${EXTENDED_STATISTICS}"'/' -i /usr/local/etc/unbound/unbound.conf
 
-/usr/local/sbin/unbound -c /usr/local/etc/unbound/unbound.conf -d -v
+exec /usr/local/sbin/unbound -c /usr/local/etc/unbound/unbound.conf -d -v
