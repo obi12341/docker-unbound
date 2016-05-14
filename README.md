@@ -1,6 +1,6 @@
 Unbound (with DNSSEC validation)
 ===========
-
+[![Build Status](https://travis-ci.org/obi12341/docker-unbound.svg?branch=master)](https://travis-ci.org/obi12341/docker-unbound)
 
 # Running
 
