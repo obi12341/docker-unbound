@@ -1,0 +1,13 @@
+sudo: required
+
+language: ruby
+
+services:
+  - docker
+
+before_install:
+  - gem install serverspec
+  - gem install docker-api
+
+script:
+  - rspec Dockerfile_spec.rb

@@ -1,6 +1,6 @@
 Unbound (with DNSSEC validation)
 ===========
-[![](https://badge.imagelayers.io/secns/unbound:latest.svg)](https://imagelayers.io/?images=secns/unbound:latest 'Get your own badge on imagelayers.io')
+[![Build Status](https://travis-ci.org/obi12341/docker-unbound.svg?branch=master)](https://travis-ci.org/obi12341/docker-unbound)
 
 # Running
 
