@@ -1,16 +1,15 @@
-FROM alpine:3.3
+FROM athlinks/alpine:3.4
 
 MAINTAINER ryanckoch@gmail.com
 
-RUN apk add --update bash unbound
+RUN apk add --update bash unbound && \
+    rm -rf /tmp/* /var/cache/apk/*
 
 ADD conf/unbound.conf /etc/unbound/unbound.conf
-
-RUN chown -R unbound:unbound /etc/unbound/
-
-
 ADD bin/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+
+RUN chown -R unbound:unbound /etc/unbound/ && \
+    chmod +x /entrypoint.sh
 
 EXPOSE 53/udp
 EXPOSE 53
