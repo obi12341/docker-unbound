@@ -1,7 +1,5 @@
 FROM athlinks/alpine:3.4
 
-MAINTAINER ryanckoch@gmail.com
-
 RUN apk add --update bash unbound && \
     rm -rf /tmp/* /var/cache/apk/*
 
