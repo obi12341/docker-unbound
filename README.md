@@ -14,7 +14,7 @@ If you want to override the nameserver in the unbound container, you can use:
 ```docker run --name unbound -d -p 53:53/udp -p 53:53 --dns="127.0.0.1" secns/unbound:1.5.9```
 
 # Configuration
-These options can be set:
+These options can be set via the environment variable -e flag:
 
 - **DO_IPV6**: Enable or disable ipv6. (Default: "yes", Possible Values: "yes, no")
 - **DO_IPV4**: Enable or disable ipv4. (Default: "yes", Possible Values: "yes, no")
@@ -36,3 +36,4 @@ These options can be set:
 - **STATISTICS_INTERVAL**: print statistics to the log (for every thread) every N seconds. (Default: "0", Possible Values: "0, 1")
 - **STATISTICS_CUMULATIVE**: enable cumulative statistics, without clearing them after printing. (Default: "no", Possible Values: "yes, no")
 - **EXTENDED_STATISTICS**: enable extended statistics (query types, answer codes, status) printed from unbound-control. (Default: "no", Possible Values: "yes, no")
+- **INTERFACE**: Sets the interface to listen on useful when using --net=host (Default 0.0.0.0, Possible Values: "<ipaddress>", "<ipaddress>@<port>")
