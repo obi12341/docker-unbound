@@ -42,6 +42,7 @@ RUN useradd --system unbound --home /home/unbound --create-home
 ENV PATH $PATH:/usr/local/lib
 RUN ldconfig
 ADD assets/unbound.conf /usr/local/etc/unbound/unbound.conf
+RUN mkdir /usr/local/etc/unbound/conf.d
 RUN chown -R unbound:unbound /usr/local/etc/unbound/
 
 USER unbound
