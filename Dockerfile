@@ -1,4 +1,4 @@
-FROM athlinks/alpine:3.4
+FROM alpine:3.5
 
 RUN apk add --update bash unbound && \
     rm -rf /tmp/* /var/cache/apk/*
