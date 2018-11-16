@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:bionic
 MAINTAINER patrick@oberdorf.net
 
 ENV VERSION 1.8.1
@@ -12,8 +12,9 @@ RUN apt-get update && apt-get install -y \
 	wget \
 	libssl-dev \
 	libevent-dev \
-	libevent-2.0-5 \
+	libevent-2.1-6 \
 	libexpat1-dev \
+        libexpat1 \
 	dnsutils \
 	&& wget http://www.unbound.net/downloads/unbound-${VERSION}.tar.gz -P /usr/local/src/ \
 	&& sha256sum -c sha256checksum \
