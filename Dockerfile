@@ -1,7 +1,7 @@
 FROM ubuntu:trusty
 MAINTAINER patrick@oberdorf.net
 
-ENV VERSION 1.7.2
+ENV VERSION 1.8.1
 
 WORKDIR /usr/local/src/
 ADD assets/sha256checksum sha256checksum
