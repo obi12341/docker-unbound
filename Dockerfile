@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
 	libevent-dev \
 	libevent-2.1-6 \
 	libexpat1-dev \
-        libexpat1 \
+	libexpat1 \
 	dnsutils \
 	&& wget http://www.unbound.net/downloads/unbound-${VERSION}.tar.gz -P /usr/local/src/ \
 	&& sha256sum -c sha256checksum \
