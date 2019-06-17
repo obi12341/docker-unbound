@@ -5,12 +5,12 @@ Unbound (with DNSSEC validation)
 
 Just use this command to start the container. Unbound will listen on port 53/udp.
 
-```docker run --name unbound -d -p 53:53/udp -p 53:53 secns/unbound:1.9.1```
+```docker run --name unbound -d -p 53:53/udp -p 53:53 secns/unbound:1.9.2```
 
 (optional)
 If you want to override the nameserver in the unbound container, you can use:
 
-```docker run --name unbound -d -p 53:53/udp -p 53:53 --dns="127.0.0.1" secns/unbound:1.9.1```
+```docker run --name unbound -d -p 53:53/udp -p 53:53 --dns="127.0.0.1" secns/unbound:1.9.2```
 
 # Configuration
 These options can be set via the environment variable -e flag:
