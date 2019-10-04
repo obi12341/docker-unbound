@@ -1,7 +1,7 @@
 FROM ubuntu:bionic
 MAINTAINER patrick@oberdorf.net
 
-ENV VERSION 1.9.2
+ENV VERSION 1.9.4
 
 WORKDIR /usr/local/src/
 ADD assets/sha256checksum sha256checksum
