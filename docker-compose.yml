@@ -1,5 +1,5 @@
 unbound:
-  image: secns/unbound:1.10.1
+  image: secns/unbound:1.11.0
   ports:
   - "53:53/udp"
   - "53:53"
