@@ -15,6 +15,7 @@ RRSET_CACHE_SIZE=${RRSET_CACHE_SIZE:-4m}
 CACHE_MIN_TTL=${CACHE_MIN_TTL:-0}
 CACHE_MAX_TTL=${CACHE_MAX_TTL:-86400}
 CACHE_MAX_NEGATIVE_TTL=${CACHE_MAX_NEGATIVE_TTL:-3600}
+PREFETCH=${PREFTECH:-no}
 HIDE_IDENTITY=${HIDE_IDENTITY:-no}
 HIDE_VERSION=${HIDE_VERSION:-no}
 STATISTICS_INTERVAL=${STATISTICS_INTERVAL:-0}
@@ -38,6 +39,7 @@ sed 's/{{RRSET_CACHE_SIZE}}/'"${RRSET_CACHE_SIZE}"'/' -i /usr/local/etc/unbound/
 sed 's/{{CACHE_MIN_TTL}}/'"${CACHE_MIN_TTL}"'/' -i /usr/local/etc/unbound/unbound.conf
 sed 's/{{CACHE_MAX_TTL}}/'"${CACHE_MAX_TTL}"'/' -i /usr/local/etc/unbound/unbound.conf
 sed 's/{{CACHE_MAX_NEGATIVE_TTL}}/'"${CACHE_MAX_NEGATIVE_TTL}"'/' -i /usr/local/etc/unbound/unbound.conf
+sed 's/{{PREFETCH}}/'"${PREFETCH}"'/' -i /usr/local/etc/unbound/unbound.conf
 sed 's/{{HIDE_IDENTITY}}/'"${HIDE_IDENTITY}"'/' -i /usr/local/etc/unbound/unbound.conf
 sed 's/{{HIDE_VERSION}}/'"${HIDE_VERSION}"'/' -i /usr/local/etc/unbound/unbound.conf
 sed 's/{{STATISTICS_INTERVAL}}/'"${STATISTICS_INTERVAL}"'/' -i /usr/local/etc/unbound/unbound.conf

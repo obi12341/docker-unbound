@@ -30,6 +30,7 @@ These options can be set via the environment variable -e flag:
 - **CACHE_MIN_TTL**: The time to live (TTL) value lower bound, in seconds. If more than an hour could easily give trouble due to stale data. (Default: "0", Possible Values: "<integer>")
 - **CACHE_MAX_TTL**: The time to live (TTL) value cap for RRsets and messages in the cache. Items are not cached for longer. In seconds. (Default: "86400", Possible Values: "<integer>")
 - **CACHE_MAX_NEGATIVE_TTL**: The time to live (TTL) value cap for negative responses in the cache. (Default: "3600", Possible Values: "<integer>")
+- **PREFETCH**: Enable to automatically re-fetch cached records before they expire. (Default: "no", Possible Values: "yes, no")
 - **HIDE_IDENTITY**: Enable to not answer id.server and hostname.bind queries. (Default: "no", Possible Values: "yes, no")
 - **HIDE_VERSION**: Enable to not answer version.server and version.bind queries. (Default: "no", Possible Values: "yes, no")
 - **STATISTICS_INTERVAL**: print statistics to the log (for every thread) every N seconds. (Default: "0", Possible Values: "0, 1")
