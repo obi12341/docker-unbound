@@ -29,7 +29,6 @@ RUN apt update && apt install -y \
 	&& apt purge -y \
 	build-essential \
 	gcc \
-	gcc-12-base \
 	cpp \
 	libssl-dev \
 	libevent-dev \
