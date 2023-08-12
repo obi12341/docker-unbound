@@ -16,7 +16,7 @@ RUN apt update && apt install -y \
 	libexpat1-dev \
 	libexpat1 \
 	dnsutils \
-	&& wget http://www.unbound.net/downloads/unbound-${VERSION}.tar.gz -P /usr/local/src/ \
+	&& wget --no-hsts http://www.unbound.net/downloads/unbound-${VERSION}.tar.gz -P /usr/local/src/ \
 	&& sha256sum -c sha256checksum \
 	&& tar -xvf unbound-${VERSION}.tar.gz \
 	&& rm unbound-${VERSION}.tar.gz \
