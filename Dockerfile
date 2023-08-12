@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:jammy
 MAINTAINER patrick@oberdorf.net
 
 ENV VERSION 1.17.1
@@ -6,13 +6,13 @@ ENV VERSION 1.17.1
 WORKDIR /usr/local/src/
 ADD assets/sha256checksum sha256checksum
 
-RUN apt-get update && apt-get install -y \
+RUN apt update && apt install -y \
 	build-essential \
 	tar \
 	wget \
 	libssl-dev \
 	libevent-dev \
-	libevent-2.1-6 \
+	libevent-2.1-7 \
 	libexpat1-dev \
 	libexpat1 \
 	dnsutils \
@@ -26,17 +26,16 @@ RUN apt-get update && apt-get install -y \
 	&& make install \
 	&& cd ../ \
 	&& rm -R unbound-${VERSION} \
-	&& apt-get purge -y \
+	&& apt purge -y \
 	build-essential \
 	gcc \
-	gcc-4.8 \
+	gcc-12-base \
 	cpp \
-	cpp-4.8 \
 	libssl-dev \
 	libevent-dev \
 	libexpat1-dev \
-	&& apt-get autoremove --purge -y \
-	&& apt-get clean \
+	&& apt autoremove --purge -y \
+	&& apt clean \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN useradd --system unbound --home /home/unbound --create-home
