@@ -37,3 +37,4 @@ These options can be set via the environment variable -e flag:
 - **STATISTICS_CUMULATIVE**: enable cumulative statistics, without clearing them after printing. (Default: "no", Possible Values: "yes, no")
 - **EXTENDED_STATISTICS**: enable extended statistics (query types, answer codes, status) printed from unbound-control. (Default: "no", Possible Values: "yes, no")
 - **INTERFACE**: Sets the interface to listen on useful when using --net=host (Default 0.0.0.0, Possible Values: "<ipaddress>", "<ipaddress>@<port>")
+- **REMOTE_CONTROL_ENABLE**: Enable the remote control feature (Default "yes", Possible Values: "yes, no")
