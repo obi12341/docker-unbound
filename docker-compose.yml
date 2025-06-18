@@ -1,6 +1,6 @@
 services:
   unbound:
-    image: mobilistics/unbound:1.21.0
+    image: mobilistics/unbound:1.23.0
     ports:
       - "53:53/udp"
       - "53:53"

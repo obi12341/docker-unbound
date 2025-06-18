@@ -1,6 +1,6 @@
 FROM ubuntu:jammy
 
-ENV VERSION 1.21.0
+ENV VERSION 1.23.0
 
 WORKDIR /usr/local/src/
 COPY assets/sha256checksum sha256checksum
